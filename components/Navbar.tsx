@@ -12,26 +12,30 @@ export default function Navbar() {
     };
 
     return (
-        <section className="absolute fixed bg-white/30 backdrop-blur-xl w-full top-0 z-50 backdrop-blur-md border-b border-white/10 transition-all">
+        <section className="absolute fixed bg-white/10 backdrop-blur-xl w-full top-0 z-50 backdrop-blur-md border-b border-white/10 transition-all">
             <div className="max-w-[1400px] mx-auto px-6 md:px-12">
                 <div className="flex justify-between items-center h-20">
-                    <div className="flex-shrink-0 flex items-center cursor-pointer">
-                        <img
-                            src="/LOGO.png" // Use the filename of your logo file
-                            alt="Ultimate Electrical Logo"
-                            className="h-8 w-auto mr-3" // Example Tailwind styling for height, width scaling, and right margin
-                        />
-                        <span className="text-2xl font-bold text-gray-800 tracking-tight drop-shadow-md">
-                            Ultimate<span className="text-[#091291e7]">.Electrical</span>
-                        </span>
+                    <div className="flex-shrink-0 cursor-pointer">
+                        <Link href="/" className="flex items-center">
+                            {/* Logo Image */}
+                            <img
+                                src="/LOGO.png"
+                                alt="Ultimate Electrical Logo"
+                                className="h-10 w-auto mr-2"
+                            />
+                            {/* Brand Name */}
+                            <span className="text-2xl font-bold text-[#1a2b4b] tracking-tight">
+                                Ultimate<span className="text-[#0033cc]">.Electrical</span>
+                            </span>
+                        </Link>
                     </div>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex space-x-8 items-center">
-                        <Link href="#" className="text-slate-300 hover:text-[#FFD700] px-3 py-2 text-sm font-medium transition-colors drop-shadow-sm">Home</Link>
-                        <Link href="#" className="text-slate-300 hover:text-[#FFD700] px-3 py-2 text-sm font-medium transition-colors drop-shadow-sm">About Us</Link>
-                        <Link href="#" className="text-slate-300 hover:text-[#FFD700] px-3 py-2 text-sm font-medium transition-colors drop-shadow-sm">Services</Link>
-                        <Link href="#" className="text-slate-300 hover:text-[#FFD700] px-3 py-2 text-sm font-medium transition-colors drop-shadow-sm">Contact</Link>
+                        <Link href="/" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">Home</Link>
+                        <Link href="#" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">About Us</Link>
+                        <Link href="/shop" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">Shop</Link>
+                        <Link href="#" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">Contact</Link>
 
                         {/* Call to Action Button */}
                         <button className="bg-[#091291e7] hover:bg-[#e6c200] text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:scale-105">
@@ -59,13 +63,13 @@ export default function Navbar() {
 
             {/* Mobile Menu Dropdown - Dark Themed */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-[#0e1357e7] border-b border-white/10 absolute w-full left-0 shadow-2xl">
+                <div className="md:hidden rounded-b-3xl backdrop-blur-md bg-[#0f0f0f]/95 border-b border-white/10 absolute w-full left-0 shadow-2xl">
                     <div className="px-6 pt-4 pb-8 space-y-3">
-                        <Link href="#" className="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#0a1128] hover:bg-[#FFD700] transition-all">
+                        <Link href="/" className="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#0a1128] hover:bg-[#FFD700] transition-all">
                             Home
                         </Link>
-                        <Link href="#" className="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#0a1128] hover:bg-[#FFD700] transition-all">
-                            About Us
+                        <Link href="/shop" className="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#0a1128] hover:bg-[#FFD700] transition-all">
+                            Shop
                         </Link>
                         <Link href="#" className="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#0a1128] hover:bg-[#FFD700] transition-all">
                             Services
@@ -74,9 +78,11 @@ export default function Navbar() {
                             Contact
                         </Link>
                         <div className="pt-4">
-                            <button className="w-full bg-[#FFD700] hover:bg-[#e6c200] text-[#0a1128] px-5 py-3.5 rounded-3xl text-base font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)]">
-                                Get Started
-                            </button>
+                            <Link href="/shop">
+                                <button className="w-full bg-[#FFD700] hover:bg-[#e6c200] text-[#0a1128] px-5 py-3.5 rounded-3xl text-base font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)]">
+                                    Get Started
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function VideoBanner() {
     return (
-        <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+        <section className="relative w-full h-screen overflow-hidden flex items-center rounded-3xl justify-center">
             {/* Background Video */}
             <video
                 autoPlay

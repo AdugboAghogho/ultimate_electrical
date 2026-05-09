@@ -53,7 +53,6 @@ export default function CheckoutPage() {
     }
 
     setLoading(true);
-
     try {
       // 1. Prepare Order Data
       const orderData = {
@@ -84,10 +83,11 @@ export default function CheckoutPage() {
       if (result.success) {
         // 3. Generate WhatsApp Link using the ID from our API
         const orderLink = `${window.location.origin}/order/${result.orderId}`;
-        const message = `Hello Ultimate.Electrical! I've placed a new order.\n\nOrder ID: ${result.orderId} \n\n View Details: ${orderLink}`;
+        const message = `Hello Ultimate.Electrical! I've placed a new order.\n\n\n Order ID: ${result.orderId} \n\n\n View Details: ${orderLink}`;
 
         clearCart();
 
+        window.location.href = '/';
         window.open(
           `https://wa.me/2348035361989?text=${encodeURIComponent(message)}`,
           "_blank",
@@ -263,3 +263,5 @@ export default function CheckoutPage() {
     </div>
   );
 }
+
+

@@ -8,6 +8,7 @@ import HeroBanner from "@/components/HeroBanner";
 import ProductGrid from "@/components/ProductGrid";
 import { Search, ShoppingBag } from "lucide-react";
 import image from "@/public/light.jpg";
+import VideoBanner from "@/components/VideoBanner";
 // import { useUser } from "@clerk/nextjs";
 
 
@@ -79,13 +80,14 @@ export default function ShopClient({
             </Link>
           </div>
         </header>
-
         {/* Hero Banner (Burberry style) */}
         <HeroBanner />
 
         {/* Product Grid */}
         <ProductGrid products={products} categories={categories} />
+        <VideoBanner />
 
+        <ProductGrid products={products} categories={categories} />
         <Banner />
       </main>
     </div>
