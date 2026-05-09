@@ -1,13 +1,13 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
+import { defineConfig } from 'sanity'
+import { structureTool } from 'sanity/structure'
+import { visionTool } from '@sanity/vision'
+import { schemaTypes } from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Vinono Clothing',
+  title: 'Ultimate Electrical',
 
-  projectId: 'ku2pfbl3',
+  projectId: 'tjg5r53z',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],

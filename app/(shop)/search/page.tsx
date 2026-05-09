@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { useCartStore } from "@/store/useCartStore";
 import { useState, useEffect } from "react";
 import { Search, X, Loader2, ShoppingCart, ArrowLeft } from "lucide-react";
-import SectionNewsletter from "@/components/landingPage/SectionNewsletter";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
@@ -48,9 +47,9 @@ export default function SearchPage() {
 
   return (
     <div className="min-h-screen max-w-400 mx-auto bg-[#FDFBF7] p-4 md:p-8">
-        <button onClick={() => router.back()} className="w-10 h-10 mb-10 hover:bg-gray-100 scale-108 rounded-full cursor-pointer shadow-xl flex items-center justify-center transition-colors">
-          <ArrowLeft className="w-5 h-5" />
-        </button>
+      <button onClick={() => router.back()} className="w-10 h-10 mb-10 hover:bg-gray-100 scale-108 rounded-full cursor-pointer shadow-xl flex items-center justify-center transition-colors">
+        <ArrowLeft className="w-5 h-5" />
+      </button>
 
       {/* Search Bar */}
       <div className="relative mb-8">
@@ -152,7 +151,6 @@ export default function SearchPage() {
           </div>
         </>
       )}
-      <SectionNewsletter />
     </div>
 
   );

@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "@/store/useCartStore";
 import { ArrowLeft, CreditCard, Truck, Trash2, Loader2 } from "lucide-react";
-import SectionNewsletter from "@/components/landingPage/SectionNewsletter";
 import { client } from "@/lib/sanity";
 
 export default function CheckoutPage() {
@@ -23,8 +22,8 @@ export default function CheckoutPage() {
   });
   const { items, getTotalPrice } = useCartStore();
   const total = getTotalPrice();
-  const shipping = 10.0;
-  const finalTotal = total + shipping;
+  // const shipping = 10.0;
+  const finalTotal = total;
   const router = useRouter();
 
   const clearCart = useCartStore((state) => state.clearCart);
@@ -85,12 +84,12 @@ export default function CheckoutPage() {
       if (result.success) {
         // 3. Generate WhatsApp Link using the ID from our API
         const orderLink = `${window.location.origin}/order/${result.orderId}`;
-        const message = `Hello Vinono Clothing! I've placed a new order.\n\nOrder ID: ${result.orderId} \n\n View Details: ${orderLink}`;
+        const message = `Hello Ultimate.Electrical! I've placed a new order.\n\nOrder ID: ${result.orderId} \n\n View Details: ${orderLink}`;
 
         clearCart();
 
         window.open(
-          `https://wa.me/2348107902179?text=${encodeURIComponent(message)}`,
+          `https://wa.me/2348035361989?text=${encodeURIComponent(message)}`,
           "_blank",
         );
       } else {
@@ -223,7 +222,7 @@ export default function CheckoutPage() {
             </div>
             <div className="flex justify-between text-sm text-gray-500">
               <span>Shipping</span>
-              <span>₦{shipping.toFixed(3)}</span>
+              {/* <span>₦{shipping.toFixed(3)}</span> */}
             </div>
           </div>
 
@@ -261,7 +260,6 @@ export default function CheckoutPage() {
           </Button>
         </div>
       </div>
-      <SectionNewsletter />
     </div>
   );
 }

@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Banner from "@/components/shopPage/Banner";
-import SideBar from "@/components/shopPage/SideBar";
-import HeroBanner from "@/components/shopPage/HeroBanner";
-import ProductGrid from "@/components/shopPage/ProductGrid";
-import { useUser } from "@clerk/nextjs";
+import Banner from "@/components/Banner";
+import SideBar from "@/components/SideBar";
+import HeroBanner from "@/components/HeroBanner";
+import ProductGrid from "@/components/ProductGrid";
 import { Search, ShoppingBag } from "lucide-react";
-import image from "@/public/img/2 (2).jpeg";
-import SectionNewsletter from "@/components/landingPage/SectionNewsletter";
+import image from "@/public/light.jpg";
+// import { useUser } from "@clerk/nextjs";
 
 
 export default function ShopClient({
@@ -31,15 +30,15 @@ export default function ShopClient({
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-orange-100 overflow-hidden relative">
                 {/* {user?.imageUrl && ( */}
-                  <Link href="/profile">
-                    <Image
-                      // src={user.imageUrl || image}
-                      src={image}
-                      alt="User"
-                      fill
-                      className="object-cover"
-                    />
-                  </Link>
+                <Link href="/profile">
+                  <Image
+                    // src={user.imageUrl || image}
+                    src={image}
+                    alt="User"
+                    fill
+                    className="object-cover"
+                  />
+                </Link>
                 {/* )} */}
               </div>
               <div>
@@ -88,9 +87,6 @@ export default function ShopClient({
         <ProductGrid products={products} categories={categories} />
 
         <Banner />
-
-        <SectionNewsletter />
-
       </main>
     </div>
   );

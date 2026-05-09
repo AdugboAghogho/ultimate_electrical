@@ -1,75 +1,59 @@
-import { defineField, defineType } from 'sanity'
-
-export default defineType({
+export default {
   name: 'product',
   title: 'Product',
   type: 'document',
   fields: [
-    defineField({
-      name: 'name',
-      title: 'Product Name',
+    {
+      name: 'title',
+      title: 'Title',
       type: 'string',
-    }),
-    defineField({
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      options: { source: 'title' },
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
       options: {
-        source: 'name',
-        maxLength: 96,
+        list: [
+          { title: 'Chandelier', value: 'chandelier' },
+          { title: 'Pendant Light', value: 'pendant' },
+          { title: 'Wall Light', value: 'wall-light' },
+          { title: 'Drop Light', value: 'Drop-light' },
+          { title: 'LED Neon Strip', value: 'led-strip' },
+        ],
       },
-    }),
-    defineField({
-      name: 'price',
-      title: 'Price',
-      type: 'number',
-    }),
-    defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-    }),
-    defineField({
+    },
+    {
       name: 'images',
       title: 'Product Images',
       type: 'array',
-      of: [{ type: 'image' }],
-    }),
-    defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'reference',
-      to: [{ type: 'category' }],
-    }),
-    defineField({
-      name: 'sizes',
-      title: 'Sizes',
-      type: 'array',
-      of: [{ type: 'string' }],
-      options: {
-        list: [
-          { title: 'Small', value: 'S' },
-          { title: 'Medium', value: 'M' },
-          { title: 'Large', value: 'L' },
-          { title: 'XL', value: 'XL' },
-          { title: 'XXL', value: 'XXL' },
-        ],
-      },
-    }),
-    defineField({
-      name: 'colors',
-      title: 'Colors',
-      type: 'array',
-      of: [{ type: 'string' }],
-      options: {
-        list: [
-          { title: 'Orange', value: 'orange' },
-          { title: 'Black', value: 'black' },
-          { title: 'Green', value: 'green' },
-          { title: 'Blue', value: 'blue' },
-          { title: 'White', value: 'white' },
-        ],
-      },
-    }),
+      of: [{ type: 'image', options: { hotspot: true } }],
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+    },
+    {
+      name: 'price',
+      title: 'Price',
+      type: 'number',
+    },
+    {
+      name: 'specifications',
+      title: 'Specifications',
+      type: 'object',
+      fields: [
+        { name: 'material', title: 'Material', type: 'string' },
+        { name: 'finish', title: 'Finish', type: 'string' }, // e.g., Gold, Matte Black, Copper
+        { name: 'dimensions', title: 'Dimensions', type: 'string' },
+        { name: 'colorTemperature', title: 'Color Temperature', type: 'string' }, // e.g., 3000K Warm White
+      ],
+    },
   ],
-})
+};

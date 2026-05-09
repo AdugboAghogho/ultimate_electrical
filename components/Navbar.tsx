@@ -59,7 +59,7 @@ export default function Navbar() {
 
             {/* Mobile Menu Dropdown - Dark Themed */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-dark/10 backdrop-blur-[32px] border-b border-white/10 absolute w-full left-0 shadow-2xl">
+                <div className="md:hidden bg-[#0e1357e7] border-b border-white/10 absolute w-full left-0 shadow-2xl">
                     <div className="px-6 pt-4 pb-8 space-y-3">
                         <Link href="#" className="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#0a1128] hover:bg-[#FFD700] transition-all">
                             Home

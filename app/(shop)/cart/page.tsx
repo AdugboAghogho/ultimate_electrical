@@ -6,15 +6,13 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "@/store/useCartStore";
 import { X, Minus, Plus, ArrowLeft, ShieldCheck, Trash2 } from "lucide-react";
-import SectionNewsletter from "@/components/landingPage/SectionNewsletter";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getTotalPrice } = useCartStore();
   const totalPrice = Number(getTotalPrice()) || 0;
   const router = useRouter();
-  const shipping = totalPrice > 50 ? 0 : 10;
-  const tax = totalPrice * 0.05;
-  const finalTotal = totalPrice + shipping + tax;
+  // const tax = totalPrice * 0.05;
+  const finalTotal = totalPrice;
 
   if (items.length === 0) {
     return (
@@ -138,13 +136,13 @@ export default function CartPage() {
                 <div className="flex justify-between text-gray-500">
                   <span>Subtotal</span>
                   <span className="font-bold text-gray-900">
-                   ₦{totalPrice.toFixed(3)}
+                    ₦{totalPrice.toFixed(3)}
                   </span>
                 </div>
                 <div className="flex justify-between text-gray-500">
                   <span>Delivery Fee</span>
                   <span className="font-bold text-gray-900">
-                   ₦{shipping.toFixed(3)}
+                    {/* ₦{shipping.toFixed(3)} */}
                   </span>
                 </div>
                 <div className="flex justify-between text-gray-500">
@@ -173,7 +171,6 @@ export default function CartPage() {
             </div>
           </div>
         </div>
-        <SectionNewsletter />
       </div>
     </div>
   );

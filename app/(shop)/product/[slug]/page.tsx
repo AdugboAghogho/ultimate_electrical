@@ -1,7 +1,7 @@
 import { client } from "@/lib/sanity";
 import { notFound } from "next/navigation"; // <--- 1. IMPORT THIS
 import { singleProduct, relatedProducts } from "@/lib/queries";
-import ProductDetailsClient from "../../../../components/ProductDetailsClient";
+import ProductDetailsClient from "@/components/ProductDetailsClient";
 
 export default async function ProductPage({
   params,
