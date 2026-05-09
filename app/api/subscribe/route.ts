@@ -3,7 +3,7 @@ import { createClient } from "next-sanity";
 
 // Setup Sanity Client with WRITE access
 const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'tjg5r53z',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   token: process.env.SANITY_API_TOKEN, // This must be your Editor/Write token
   apiVersion: "2026-02-01",
