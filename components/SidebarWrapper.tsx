@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 // import SideBar from " @components/shopPage/SideBar";
-import SideBar from "./shopPage/SideBar";
+import SideBar from "@/components/SideBar";
 
 export default function SidebarWrapper({
   children,
