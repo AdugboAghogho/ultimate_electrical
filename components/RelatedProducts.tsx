@@ -7,7 +7,6 @@ import Image from "next/image";
 import { useCartStore } from "@/store/useCartStore";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ArrowRight, ShoppingBag, Heart } from "lucide-react";
-import SectionNewsletter from "@/components/landingPage/SectionNewsletter";
 
 export default function RelatedProducts({
   relatedProducts = [],
