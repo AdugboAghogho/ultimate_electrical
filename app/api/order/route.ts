@@ -3,7 +3,7 @@ import { createClient } from 'next-sanity';
 import { NextResponse } from 'next/server';
 
 const privateClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'tjg5r53z',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: '2026-03-23',
   useCdn: false,
