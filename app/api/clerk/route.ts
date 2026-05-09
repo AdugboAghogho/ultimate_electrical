@@ -84,3 +84,15 @@
 
 //   return new Response("", { status: 200 });
 // }
+import { NextResponse } from 'next/server';
+
+export async function POST(req: Request) {
+  try {
+    const payload = await req.json();
+    console.log('Clerk Webhook received:', payload);
+
+    return NextResponse.json({ message: 'Received' }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
+  }
+}
