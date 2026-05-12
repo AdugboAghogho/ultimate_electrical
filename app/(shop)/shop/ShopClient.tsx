@@ -9,6 +9,8 @@ import ProductGrid from "@/components/ProductGrid";
 import { Search, ShoppingBag } from "lucide-react";
 import image from "@/public/light.jpg";
 import VideoBanner from "@/components/VideoBanner";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 // import { useUser } from "@clerk/nextjs";
 
 
@@ -20,13 +22,22 @@ export default function ShopClient({
   categories: any[];
 }) {
   // const { user } = useUser();
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      // This sends the user to /search?query=theirtext
+      router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
 
   return (
     <div className="flex max-w-400 mx-auto">
       <SideBar />
 
       <main className="flex-1 p-4 md:p-8 overflow-y-auto">
-        <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 mt-18 mb-8">
           <div className="flex justify-between items-center w-full md:hidden">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-orange-100 overflow-hidden relative">
@@ -53,7 +64,7 @@ export default function ShopClient({
 
             {/* Cart Button (Mobile Position) */}
             <Link href="/cart">
-              <button className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center shadow-orange-200 shadow-lg text-white hover:scale-110 transition-transform cursor-pointer">
+              <button className="w-10 h-10 rounded-full bg-[#091291e7] flex items-center justify-center shadow-orange-200 shadow-lg text-white hover:scale-110 transition-transform cursor-pointer">
                 <ShoppingBag className="w-5 h-5" />
               </button>
             </Link>
@@ -61,20 +72,24 @@ export default function ShopClient({
 
           {/* --- ROW 2: Search Bar (Full width on mobile, Centered on Desktop) --- */}
           <div className="flex-1 w-full md:max-w-md relative md:mx-4">
-            <Link href="/search">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <form onSubmit={handleSearch}>
+              <button type="submit" className="absolute left-4 top-1/2 -translate-y-1/2">
+                <Search className="w-4 h-4 text-gray-400 hover:text-orange-500 transition-colors" />
+              </button>
               <input
                 type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for clothes..."
                 className="w-full bg-white border border-gray-100 rounded-full py-3 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200 shadow-sm"
               />
-            </Link>
+            </form>
           </div>
 
           {/* --- DESKTOP CART (Hidden on Mobile) --- */}
           <div className="hidden md:flex gap-3">
             <Link href="/cart">
-              <button className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center shadow-orange-200 shadow-lg text-white">
+              <button className="w-10 h-10 rounded-full bg-[#091291e7] flex items-center justify-center shadow-orange-200 shadow-lg text-white">
                 <ShoppingBag className="w-5 h-5" />
               </button>
             </Link>
@@ -85,9 +100,9 @@ export default function ShopClient({
 
         {/* Product Grid */}
         <ProductGrid products={products} categories={categories} />
+
         <VideoBanner />
 
-        <ProductGrid products={products} categories={categories} />
         <Banner />
       </main>
     </div>

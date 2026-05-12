@@ -62,7 +62,7 @@ const Footer = () => {
             <div className="bg-[#0f0f0f] rounded-4xl overflow-hidden relative shadow-2xl border border-zinc-800">
                 {/* --- Background Effects --- */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                    <div className="absolute top-[-10%] left-[20%] w-96 h-96 bg-orange-500/10 blur-[120px] rounded-full" />
+                    <div className="absolute top-[-10%] left-[20%] w-96 h-96 bg-[#091291e7] /10 blur-[120px] rounded-full" />
                     <div className="absolute bottom-[-10%] right-[10%] w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full" />
                 </div>
 

@@ -14,7 +14,7 @@ const HeroBanner = () => {
         </h2>
         <p className="text-4xl font-black text-red-600 mb-4">20% Off</p>
         <Link href='/product/nv-tee-royal-blue'>
-          <Button className="w-fit bg-red-600 hover:bg-red-800 text-white rounded-full px-8 shadow-lg shadow-orange-300 border-none">
+          <Button className="w-fit bg-[#091291e7] hover:bg-red-800 text-white rounded-full px-8 shadow-lg shadow-orange-300 border-none">
             Shop Now
           </Button>
         </Link>

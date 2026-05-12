@@ -3,7 +3,7 @@ import { ArrowUpRight, Play, Menu } from 'lucide-react';
 
 export default function HeroSection() {
     return (
-        <div className="relative min-h-screen w-full bg-[#0a1128] text-white font-sans overflow-hidden selection:bg-[#FFD700] selection:text-[#0a1128]">
+        <div className="relative min-h-screen w-full text-white font-sans overflow-hidden selection:bg-[#FFD700] selection:text-[#0a1128]">
             {/* Video Background */}
             <div className="absolute inset-0 w-full h-full z-0">
                 <video

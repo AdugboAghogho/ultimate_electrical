@@ -10,8 +10,8 @@ const MobileNav = () => {
   const { items } = useCartStore();
 
   return (
-    <div className="md:hidden fixed bottom-2 w-[90%] left-1/2 transform -translate-x-1/2 z-50">
-      <div className="bg-black/90 backdrop-blur-md text-white px-8 py-4 rounded-full shadow-2xl flex items-center justify-between border border-white/10">
+    <div className="md:hidden fixed bottom-2 w-[90%] left-1/2 transform -translate-x-1/2 z-35">
+      <div className="bg-black/90 backdrop-blur-md text-white px-7 py-3 rounded-full shadow-2xl flex items-center justify-between border border-white/10">
         <NavIcon href="/" icon={Home} isActive={pathname === "/"} />
 
         <NavIcon

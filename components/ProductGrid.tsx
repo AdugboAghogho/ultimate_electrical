@@ -1,9 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
-
 import { Heart, Star, ShoppingCart } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
 
@@ -17,11 +15,13 @@ const ProductGrid = ({
   const [activeCategory, setActiveCategory] = useState("All");
   const { addItem } = useCartStore();
 
-  // Filter Logic
-  const filteredProducts =
-    activeCategory === "All"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
+  const filteredProducts = activeCategory === "All"
+    ? products
+    : products.filter(p => {
+      // This matches the formatted title or the raw value
+      const formattedCat = p.category.charAt(0).toUpperCase() + p.category.slice(1).replace('-', ' ');
+      return formattedCat === activeCategory;
+    });
 
   return (
     <div>
@@ -29,7 +29,7 @@ const ProductGrid = ({
       <div className="flex gap-3 overflow-x-auto pb-4 mb-6 no-scrollbar">
         <button
           onClick={() => setActiveCategory("All")}
-          className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === "All" ? "bg-red-600 text-white" : "bg-white border"}`}
+          className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === "All" ? "bg-[#091291e7] text-white" : "bg-white border"}`}
         >
           All
         </button>
@@ -37,11 +37,10 @@ const ProductGrid = ({
           <button
             key={cat.slug}
             onClick={() => setActiveCategory(cat.title)}
-            className={`px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-              activeCategory === cat.title
-                ? "bg-red-600 text-white shadow-lg"
-                : "bg-white text-gray-500 border border-gray-100"
-            }`}
+            className={`px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${activeCategory === cat.title
+                ? "bg-[#091291e7] text-white shadow-lg scale-105"
+                : "bg-white text-gray-500 border border-gray-100 hover:bg-gray-50"
+              }`}
           >
             {cat.title}
           </button>
@@ -55,12 +54,12 @@ const ProductGrid = ({
             key={product._id}
             className="group"
           >
-            <div className="bg-white p-3 rounded-2xl shadow-xl hover:shadow-xl transition-all duration-300 border border-gray-50 h-full flex flex-col">
+            <div className=" p-3 rounded-2xl shadow-xl hover:shadow-xl transition-all duration-300 border border-gray-50 h-full flex flex-col">
               {/* Image */}
               <div className="relative aspect-3/4 rounded-2xl overflow-hidden mb-3 bg-gray-100">
                 <Image
                   src={product.imageUrl}
-                  alt={product.name}
+                  alt={product.title}
                   fill
                   className="object-cover"
                 />
@@ -69,7 +68,7 @@ const ProductGrid = ({
               {/* Details */}
               <div className="px-1 flex-1 flex flex-col">
                 <h3 className="font-bold text-gray-900 mb-1 truncate">
-                  {product.name}
+                  {product.title}
                 </h3>
 
                 <div className="mt-auto flex items-center justify-between">
@@ -78,7 +77,7 @@ const ProductGrid = ({
                   </span>
 
                   <button
-                    className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-orange-200 hover:scale-110 transition-transform"
+                    className="w-10 h-10 bg-[#091291e7] rounded-full flex items-center justify-center text-white shadow-lg shadow-orange-200 hover:scale-110 transition-transform"
                     onClick={(e) => {
                       e.preventDefault(); // <--- THIS STOPS THE REDIRECT
                       addItem(product);

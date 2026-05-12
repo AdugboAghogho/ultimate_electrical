@@ -25,7 +25,7 @@ export default function CartPage() {
         </h2>
         <Button
           onClick={() => router.back()}
-          className="h-12 px-8 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold"
+          className="h-12 px-8 rounded-full bg-[#091291e7]  hover:bg-orange-600 text-white font-bold"
         >
           Start Shopping
         </Button>

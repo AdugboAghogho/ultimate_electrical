@@ -29,14 +29,14 @@ const BANNER_SLIDES = [
     id: 2,
     title: "New Season",
     offer: "Fresh Drops",
-    link: "/product/nv-tee-olive-green",
+    link: "/product/gd-light",
     image: banner2,
   },
   {
     id: 3,
     title: "Summer Sale",
     offer: "Flat 30%",
-    link: "/product/v-tee-white",
+    link: "/product/ligth",
     image: banner3,
   },
 ];
@@ -57,7 +57,7 @@ const HeroBanner = () => {
           clickable: true,
           renderBullet: function (index, className) {
             return (
-              '<span class="' + className + ' !bg-red-600 !w-2 !h-2"></span>'
+              '<span class="' + className + ' bg-[#091291e7]  !w-2 !h-2"></span>'
             );
           },
         }}
@@ -73,7 +73,7 @@ const HeroBanner = () => {
                 fill
                 className="object-cover"
                 priority={slide.id === 1}
-                placeholder="blur" // Adds a nice blur effect while loading since it's local
+                placeholder="blur"
               />
 
               {/* Gradient Overlay & Content */}
@@ -81,12 +81,12 @@ const HeroBanner = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-1 animate-in slide-in-from-left-4 duration-700">
                   {slide.title}
                 </h2>
-                <p className="text-4xl font-black text-red-600 mb-4 animate-in slide-in-from-left-4 duration-700 delay-100">
+                <p className="text-4xl font-black text-[#091291e7] mb-4 animate-in slide-in-from-left-4 duration-700 delay-100">
                   {slide.offer}
                 </p>
 
                 <Link href={slide.link}>
-                  <Button className="w-fit bg-red-700 hover:bg-orange-600 text-white rounded-full px-8 shadow-lg shadow-orange-300 border-none animate-in fade-in duration-1000 delay-200">
+                  <Button className="w-fit bg-[#091291e7] hover:bg-orange-600 text-white rounded-full px-8 shadow-lg shadow-orange-300 border-none animate-in fade-in duration-1000 delay-200">
                     Shop Now
                   </Button>
                 </Link>

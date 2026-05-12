@@ -22,9 +22,9 @@ export default function SearchPage() {
         setIsLoading(true);
         try {
           const products = await client.fetch(
-            `*[_type == "product" && (name match "*" + $q + "*" || description match $q + "*")] {
+            `*[_type == "product" && (title match "*" + $q + "*" || description match $q + "*")] {
               _id,
-              name,
+              title,
               price,
               "slug": slug.current,
               "imageUrl": images[0].asset->url
@@ -58,7 +58,7 @@ export default function SearchPage() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search products (e.g. 'Jacket', 'Summer')..."
+          placeholder="Search products (e.g. 'Drop light', 'Rope Light')..."
           autoFocus
           className="w-full bg-white h-14 pl-12 pr-12 rounded-3xl shadow-sm outline-none focus:ring-2 focus:ring-orange-200 text-lg"
         />
@@ -91,7 +91,7 @@ export default function SearchPage() {
               <Link
                 href={`product/${item.slug}`}
                 key={item._id}
-                className="bg-white p-3 rounded-4xl shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white p-3 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="relative aspect-3/4 rounded-2xl overflow-hidden mb-3 bg-gray-100">
                   <Image
@@ -114,7 +114,7 @@ export default function SearchPage() {
                     </span>
 
                     <button
-                      className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white shadow-lg shadow-orange-200 hover:scale-110 transition-transform"
+                      className="w-10 h-10 bg-[#091291e7]  rounded-full flex items-center justify-center text-white shadow-lg shadow-orange-200 hover:scale-110 transition-transform"
                       onClick={(e) => {
                         e.preventDefault(); // <--- THIS STOPS THE REDIRECT
                         addItem(item);
@@ -139,7 +139,7 @@ export default function SearchPage() {
         <>
           <h2 className="font-bold text-gray-900 mb-6">Popular Tags</h2>
           <div className="flex flex-wrap gap-3 mb-8">
-            {["Summer", "Jacket", "Dress", "Casual"].map((tag) => (
+            {["LED", "Rope Light", "Drop Light", "Chandeliers"].map((tag) => (
               <button
                 key={tag}
                 onClick={() => setQuery(tag)}

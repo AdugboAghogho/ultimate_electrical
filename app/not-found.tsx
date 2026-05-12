@@ -34,7 +34,7 @@ export default function NotFound() {
 
           {/* --- HOME BUTTON (Fallback) --- */}
           <Link href="/">
-            <Button className="h-12 px-8 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold gap-2 shadow-lg shadow-orange-200">
+            <Button className="h-12 px-8 rounded-full bg-[#091291e7]  hover:bg-orange-600 text-white font-bold gap-2 shadow-lg shadow-orange-200">
               <Home className="w-4 h-4" />
               Go Home
             </Button>

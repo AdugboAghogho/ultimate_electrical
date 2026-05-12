@@ -169,7 +169,7 @@ export default function ProductPage({
                       key={color}
                       onClick={() => setSelectedColor(color)}
                       className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${selectedColor === color
-                          ? "bg-red-600 text-white border-red-600"
+                          ? "bg-[#091291e7] text-white border-red-600"
                           : "bg-white text-gray-600 border-gray-200 hover:border-gray-900"
                         }`}
                     >
@@ -190,7 +190,7 @@ export default function ProductPage({
                       key={size}
                       onClick={() => setSelectedSize(size)}
                       className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-200 border ${selectedSize === size
-                          ? "bg-red-600 text-white border-red-600 scale-110"
+                          ? "bg-[#091291e7] text-white border-red-600 scale-110"
                           : "bg-white text-gray-400 border-gray-200 hover:border-gray-900 hover:text-gray-900"
                         }`}
                     >
@@ -232,7 +232,7 @@ export default function ProductPage({
 
                 <Button
                   onClick={handleBuyNow}
-                  className="h-14 cursor-pointer rounded-full bg-red-600 hover:bg-red-800 text-white shadow-lg shadow-orange-100 border-none font-semibold text-md"
+                  className="h-14 cursor-pointer rounded-full bg-[#091291e7] hover:bg-red-800 text-white shadow-lg shadow-orange-100 border-none font-semibold text-md"
                 >
                   Buy Now
                 </Button>

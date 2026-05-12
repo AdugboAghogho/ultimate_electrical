@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 
 export const allProducts = groq`*[_type == "product"] {
   _id,
-  name,
+  title,
   "slug": slug.current,
   price,
   description,
@@ -14,7 +14,7 @@ export const allProducts = groq`*[_type == "product"] {
 
 export const fourProds = groq`*[_type == "product"][0..3] {
   _id,
-  name,
+  title,
   "slug": slug.current,
   price,
   description,
@@ -24,7 +24,7 @@ export const fourProds = groq`*[_type == "product"][0..3] {
 
 export const singleProduct = groq`*[_type == "product" && slug.current == $slug][0] {
   _id,
-  name,
+  title,
   price,
   description,
   "images": images[].asset->url,    
@@ -41,7 +41,7 @@ export const allCategories = groq`*[_type == "category"] {
 
 export const relatedProducts = groq`*[_type == "product" && category->title == $category && _id != $currentId][0..3] {
   _id,
-  name,
+  title,
   price,
   "imageUrl": images[0].asset->url,
   "slug": slug.current
