@@ -36,9 +36,9 @@ export default function ProductPage({
   );
 
   const images =
-    product.images && product.images.length > 0
-      ? product.images
-      : [product.imageUrl];
+  product.images && product.images.length > 0
+    ? product.images
+    : [product.imageUrl];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -53,12 +53,13 @@ export default function ProductPage({
   const handleAddToCart = () => {
     addItem({
       id: product._id,
-      name: product.name,
+      title: product.title,
       price: product.price,
       image: images[0],
       quantity: quantity,
       size: selectedSize,
       color: selectedColor,
+      name: ""
     });
     toast.success(`${product.name} Added to Cart!`);
   };
@@ -71,7 +72,6 @@ export default function ProductPage({
 
   return (
     <div className="min-h-screen bg-white container mx-auto px-4 pb-6">
-      {/* --- MOBILE HEADER --- */}
       <div className=" flex justify-between items-center p-4 sticky top-0 z-20 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <button
           onClick={() => router.back()}
@@ -116,8 +116,8 @@ export default function ProductPage({
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
                   className={`relative w-20 h-20 rounded-xl overflow-hidden shrink-0 transition-all duration-300 ${currentImageIndex === idx
-                      ? "ring-2 ring-black opacity-100"
-                      : "opacity-50 hover:opacity-100"
+                    ? "ring-2 ring-black opacity-100"
+                    : "opacity-50 hover:opacity-100"
                     }`}
                 >
                   <Image
@@ -134,13 +134,10 @@ export default function ProductPage({
           {/* --- RIGHT: DETAILS (Minimalist Typography) --- */}
           <div className="flex flex-col px-6 md:px-0 pt-2">
             <div className="mb-6 border-b border-gray-100 pb-6">
-              <div className="flex justify-between items-start mb-2">
+              <div className="flex justify-between items-start mb-1">
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
-                  {product.name}
+                  {product.title}
                 </h1>
-                <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                  <Heart className="w-5 h-5 text-gray-900" />
-                </button>
               </div>
 
               <div className="flex items-center gap-4">
@@ -169,8 +166,8 @@ export default function ProductPage({
                       key={color}
                       onClick={() => setSelectedColor(color)}
                       className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${selectedColor === color
-                          ? "bg-[#091291e7] text-white border-red-600"
-                          : "bg-white text-gray-600 border-gray-200 hover:border-gray-900"
+                        ? "bg-[#091291e7] text-white border-red-600"
+                        : "bg-white text-gray-600 border-gray-200 hover:border-gray-900"
                         }`}
                     >
                       {color}
@@ -189,9 +186,9 @@ export default function ProductPage({
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-200 border ${selectedSize === size
-                          ? "bg-[#091291e7] text-white border-red-600 scale-110"
-                          : "bg-white text-gray-400 border-gray-200 hover:border-gray-900 hover:text-gray-900"
+                      className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-200 shadow-xl ${selectedSize === size
+                        ? "bg-[#091291e7] text-white shadow-xl scale-110"
+                        : "bg-white text-gray-400 shadow-gray-300 hover:border-gray-900 hover:text-gray-900"
                         }`}
                     >
                       {size}
@@ -203,9 +200,9 @@ export default function ProductPage({
 
             {/* Quantity & Actions */}
             <div className="flex flex-col gap-4 mt-auto">
-              <div className="flex items-center justify-between bg-gray-50 p-4 rounded-2xl">
+              <div className="flex items-center justify-between bg-gray-50 p-4 shadow-xl rounded-2xl">
                 <span className="font-semibold text-gray-700">Quantity</span>
-                <div className="flex items-center gap-6 bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-100">
+                <div className="flex items-center gap-6 bg-white px-4 py-2 rounded-3xl shadow-xl border border-gray-100">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     className="hover:text-red-600 transition-colors"
@@ -225,14 +222,14 @@ export default function ProductPage({
               <div className="grid grid-cols-2 gap-3">
                 <Button
                   onClick={handleAddToCart}
-                  className="h-14 cursor-pointer rounded-full border border-gray-200 bg-white text-black hover:bg-gray-50 hover:text-black font-semibold text-md"
+                  className="h-14 cursor-pointer rounded-full shadow-xl shadow-gray-400 bg-white text-black hover:bg-gray-50 hover:text-black font-semibold text-md"
                 >
                   Add to Cart
                 </Button>
 
                 <Button
                   onClick={handleBuyNow}
-                  className="h-14 cursor-pointer rounded-full bg-[#091291e7] hover:bg-red-800 text-white shadow-lg shadow-orange-100 border-none font-semibold text-md"
+                  className="h-14 cursor-pointer rounded-full shadow-xl shadow-gray-400 bg-[#091291e7] hover:bg-red-800 text-white shadow-lg shadow-orange-100 border-none font-semibold text-md"
                 >
                   Buy Now
                 </Button>

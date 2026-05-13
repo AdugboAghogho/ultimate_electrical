@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import product from "@/sanity/schemaTypes/product";
 
 export interface CartItem {
+  [x: string]: any;
   id: string;
   name: string;
   price: number;
@@ -29,26 +30,32 @@ export const useCartStore = create<CartState>()(
 
       addItem: (newItem) => {
         const { items } = get();
+
+        // Use _id to match Sanity's unique identifier
         const existingItem = items.find(
           (item) =>
-            item.id === newItem.id &&
+            item._id === newItem._id &&
             item.size === newItem.size &&
-            item.color === newItem.color,
+            item.color === newItem.color
         );
 
         if (existingItem) {
           set({
             items: items.map((item) =>
-              item.id === newItem.id &&
-              item.size === newItem.size &&
-              item.color === newItem.color
-                ? { ...item, quantity: item.quantity + newItem.quantity }
-                : item,
+              item._id === newItem._id &&
+                item.size === newItem.size &&
+                item.color === newItem.color
+                ? { ...item, quantity: item.quantity + (newItem.quantity || 1) }
+                : item
             ),
           });
         } else {
-          set({ items: [...items, newItem] });
+          // Ensure newItem has a starting quantity of 1 if not provided
+          const productToAdd = { ...newItem, quantity: newItem.quantity || 1 };
+          set({ items: [...items, productToAdd] });
         }
+
+        toast.success(`${newItem.title} added to cart`);
       },
 
       removeItem: (id) => {

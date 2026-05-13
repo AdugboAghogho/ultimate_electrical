@@ -4,6 +4,8 @@ import Navbar from '@/components/Navbar';
 import Footer from "@/components/Footer";
 import "./globals.css";
 import MobileNav from "../components/MobileNav";
+import { Toaster } from "react-hot-toast";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +33,23 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Toaster
+            position="bottom-center"
+            toastOptions={{
+              style: {
+                background: '#1A5276',
+                color: '#fff',
+                border: '1px solid rgba(255,255,255,0.1)',
+                fontSize: '11px',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 700,
+                borderRadius: '12px',
+                padding: '16px 24px',
+              },
+            }}
+          />
         <Navbar />
         {children}
         <Footer />

@@ -11,6 +11,9 @@ import image from "@/public/light.jpg";
 import VideoBanner from "@/components/VideoBanner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useCartStore } from '@/store/useCartStore';
+import { usePathname } from "next/navigation";
+
 // import { useUser } from "@clerk/nextjs";
 
 
@@ -31,6 +34,10 @@ export default function ShopClient({
       router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
     }
   };
+    const { items } = useCartStore();
+    const pathname = usePathname();
+
+
 
   return (
     <div className="flex max-w-400 mx-auto">
@@ -90,15 +97,23 @@ export default function ShopClient({
           <div className="hidden md:flex gap-3">
             <Link href="/cart">
               <button className="w-10 h-10 rounded-full bg-[#091291e7] flex items-center justify-center shadow-orange-200 shadow-lg text-white">
-                <ShoppingBag className="w-5 h-5" />
+                <ShoppingBag
+                  className={`w-6 h-6 ${pathname === "/cart" ? "fill-current" : ""}`}
+                />
+                {/* Badge Logic */}
+                {items.length > 0 && (
+                    <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full text-black text-[15px] flex items-center justify-center font-bold">
+                        {items.length}
+                    </span>
+                )}
               </button>
             </Link>
           </div>
         </header>
+
         {/* Hero Banner (Burberry style) */}
         <HeroBanner />
 
-        {/* Product Grid */}
         <ProductGrid products={products} categories={categories} />
 
         <VideoBanner />

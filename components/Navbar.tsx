@@ -1,15 +1,19 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, ShoppingCart, X } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
+import { useCartStore } from '@/store/useCartStore';
+
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
     const toggleMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
+    const pathname = usePathname();
+    const { items } = useCartStore();
 
     return (
         <section className="absolute fixed bg-white/10 backdrop-blur-xl w-full top-0 z-50 backdrop-blur-md border-b border-white/10 transition-all">
@@ -37,6 +41,23 @@ export default function Navbar() {
                         <Link href="/shop" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">Shop</Link>
                         <Link href="#" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">Contact</Link>
 
+                        <Link href="/cart" className="relative group">
+                            <div
+                                className={`p-2 rounded-full transition-all duration-300 ${pathname === "/cart" ? "text-orange-500" : "text-gray-400 group-hover:text-white"}`}
+                            >
+                                <ShoppingCart
+                                    className={`w-6 h-6 ${pathname === "/cart" ? "fill-current" : ""}`}
+                                />
+
+                                {/* Badge Logic */}
+                                {items.length > 0 && (
+                                    <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full text-black text-[15px] flex items-center justify-center font-bold">
+                                        {items.length}
+                                    </span>
+                                )}
+                            </div>
+                        </Link>
+
                         {/* Call to Action Button */}
                         <button className="bg-[#091291e7] hover:bg-[#e6c200] text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:scale-105">
                             Get Started
@@ -45,6 +66,22 @@ export default function Navbar() {
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center">
+                         <Link href="/cart" className="relative group">
+                            <div
+                                className={`p-2 rounded-full transition-all duration-300 ${pathname === "/cart" ? "text-orange-500" : "text-gray-900 group-hover:text-white"}`}
+                            >
+                                <ShoppingCart
+                                    className={`w-5 h-5 ${pathname === "/cart" ? "fill-current" : ""}`}
+                                />
+
+                                {/* Badge Logic */}
+                                {items.length > 0 && (
+                                    <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full text-blue-900 text-[15px] flex items-center justify-center font-bold">
+                                        {items.length}
+                                    </span>
+                                )}
+                            </div>
+                        </Link> 
                         <button
                             onClick={toggleMenu}
                             className="text-gray-900 hover:text-[#FFD700] focus:outline-none p-2 transition-colors"

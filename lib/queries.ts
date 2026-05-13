@@ -7,7 +7,7 @@ export const allProducts = groq`*[_type == "product"] {
   price,
   description,
   "imageUrl": images[0].asset->url,
-  "category": category->title,
+  category,
   sizes,
   colors
 }`;

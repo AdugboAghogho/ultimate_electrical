@@ -77,7 +77,7 @@ export default function RelatedProducts({
 
                     <div className="flex items-center justify-between mt-auto">
                       <p className="font-bold text-gray-900 text-lg">
-                        ₦{item.price},000
+                        ₦{item.price}k
                       </p>
 
                       {/* Add to Cart Button */}
