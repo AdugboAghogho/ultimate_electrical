@@ -19,10 +19,8 @@ import { usePathname } from "next/navigation";
 
 export default function ShopClient({
   products,
-  categories,
 }: {
   products: any[];
-  categories: any[];
 }) {
   // const { user } = useUser();
   const [searchQuery, setSearchQuery] = useState("");
@@ -34,8 +32,8 @@ export default function ShopClient({
       router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
     }
   };
-    const { items } = useCartStore();
-    const pathname = usePathname();
+  const { items } = useCartStore();
+  const pathname = usePathname();
 
 
 
@@ -102,9 +100,9 @@ export default function ShopClient({
                 />
                 {/* Badge Logic */}
                 {items.length > 0 && (
-                    <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full text-black text-[15px] flex items-center justify-center font-bold">
-                        {items.length}
-                    </span>
+                  <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full text-black text-[15px] flex items-center justify-center font-bold">
+                    {items.length}
+                  </span>
                 )}
               </button>
             </Link>
@@ -114,7 +112,7 @@ export default function ShopClient({
         {/* Hero Banner (Burberry style) */}
         <HeroBanner />
 
-        <ProductGrid products={products} categories={categories} />
+        <ProductGrid products={products} />
 
         <VideoBanner />
 
