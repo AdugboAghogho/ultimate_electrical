@@ -129,7 +129,7 @@ export default function CheckoutPage() {
         <div className="space-y-6">
           <section className="bg-white p-6 rounded-4xl shadow-xl">
             <h2 className="font-bold text-lg mb-4 flex items-center gap-2">
-              <Truck className="w-5 h-5 text-red-600" /> Shipping Address
+              <Truck className="w-5 h-5 text-[#091291e7]" /> Shipping Address
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <input
@@ -167,17 +167,17 @@ export default function CheckoutPage() {
 
           <section className="bg-white p-6 rounded-4xl shadow-xl">
             <h2 className="font-bold text-lg mb-4 flex items-center gap-2">
-              <CreditCard className="w-5 h-5 text-red-600" /> Finalize via
+              <CreditCard className="w-5 h-5 text-[#091291e7]" /> Finalize via
               WhatsApp
             </h2>
-            <div className="p-4 border-2 border-red-600 bg-orange-50 rounded-xl flex items-center justify-between cursor-pointer">
+            <div className="p-4 border-2 border-[#091291e7] bg-orange-50 rounded-xl flex items-center justify-between cursor-pointer">
               <div className="flex items-center gap-3">
                 <CreditCard className="w-5 h-5 text-gray-700" />
                 <span className="font-medium text-sm">
                   Payments are processed directly with Vinono Clothing
                 </span>
               </div>
-              <div className="w-4 h-4 rounded-full border-4 border-red-600 bg-white" />
+              <div className="w-4 h-4 rounded-full border-4 border-[#091291e7] bg-white" />
             </div>
           </section>
         </div>
@@ -241,7 +241,7 @@ export default function CheckoutPage() {
             />
             <label htmlFor="terms" className="text-sm text-gray-600 cursor-pointer">
               I agree to the{" "}
-              <Link href="/terms-and-conditions" className="text-red-600 hover:underline" target="_blank">
+              <Link href="/terms-and-conditions" className="text-[#091291e7] hover:underline" target="_blank">
                 Terms and Conditions
               </Link>
             </label>
@@ -250,7 +250,7 @@ export default function CheckoutPage() {
           <Button
             disabled={loading || !termsAccepted}
             onClick={handleOrder}
-            className="w-full h-14 bg-red-600 text-white font-bold hover:scale-105 rounded-full cursor-pointer shadow-xl uppercase tracking-widest"
+            className="w-full h-14 bg-[#091291e7] text-white font-bold hover:scale-105 rounded-full cursor-pointer shadow-xl uppercase tracking-widest"
           >
             {loading ? (
               <Loader2 className="animate-spin" />

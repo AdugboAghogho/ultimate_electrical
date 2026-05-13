@@ -10,29 +10,29 @@ export default function LightingWireframeLayout() {
     const [activeTab, setActiveTab] = useState('HOT');
 
     const newCollection = [
-        { name: "PENDANT", img: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=500" },
-        { name: "CHANDELIER", img: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=500" },
-        { name: "WALL SCONCE", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=500" },
+        { name: "PENDANT", img: "/banner (2).jpg" },
+        { name: "CHANDELIER", img: "/sth (3).jpg" },
+        { name: "WALL SCONCE", img: "/sth (4).jpg" },
     ];
 
     const bestSellers = [
-        { name: "Minimalist Drop", price: "$220", rating: 4, img: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=400" },
-        { name: "Minimalist Drop", price: "$220", rating: 4, img: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=400" },
-        { name: "Minimalist Drop", price: "$220", rating: 4, img: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=400" },
-        { name: "Minimalist Drop", price: "$220", rating: 4, img: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=400" },
-        { name: "Minimalist Drop", price: "$220", rating: 4, img: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=400" },
-        { name: "Minimalist Drop", price: "$220", rating: 4, img: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=400" },
+        { name: "Minimalist Drop", price: "₦220k", rating: 4, img: "/sth (4).jpg" },
+        { name: "Minimalist Drop", price: "₦220k", rating: 4, img: "/sth (3).jpg" },
+        { name: "Minimalist Drop", price: "₦220k", rating: 4, img: "/banner (3).jpg" },
+        { name: "Minimalist Drop", price: "₦220k", rating: 4, img: "/sth (2).jpg" },
+        { name: "Minimalist Drop", price: "₦220k", rating: 4, img: "/banner (4).jpg" },
+        { name: "Minimalist Drop", price: "₦220k", rating: 4, img: "/sth (1).jpg" },
     ];
 
     const ourProducts = [
-        { name: "Lumina Sconce", price: "$140", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=400" },
-        { name: "Aero Pendant", price: "$190", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=400" },
-        { name: "Nova Flush Mount", price: "$110", img: "https://images.unsplash.com/photo-1562095241-8c6714fd4178?q=80&w=400" },
-        { name: "Echo Chandelier", price: "$340", img: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=400" },
-        { name: "Zenith Lamp", price: "$160", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=400" },
-        { name: "Halo Ring", price: "$250", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=400" },
-        { name: "Vertex Drop", price: "$130", img: "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?q=80&w=400" },
-        { name: "Crest Wall Light", price: "$95", img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=400" },
+        { name: "Lumina Sconce", price: "₦140k", img: "./sth (1).jpg" },
+        { name: "Aero Pendant", price: "₦190k", img: "./sth (2).jpg" },
+        { name: "Nova Flush Mount", price: "₦110k", img: "./sth (3).jpg" },
+        { name: "Echo Chandelier", price: "₦340k", img: "./sth (4).jpg" },
+        { name: "Zenith Lamp", price: "₦160k", img: "./sth (5).jpg" },
+        { name: "Halo Ring", price: "₦250k", img: "./sth (6).jpg" },
+        { name: "Vertex Drop", price: "₦130k", img: "./sth (7).jpg" },
+        { name: "Crest Wall Light", price: "₦95k", img: "./banner (1).jpg" },
     ];
 
     const testimonials = [
@@ -44,7 +44,7 @@ export default function LightingWireframeLayout() {
     return (
         <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-gray-200">
             {/* 1. NEW COLLECTION SECTION */}
-            <section className="max-w-[1300px] mx-auto shadow-xl rounded-[3rem] px-4 md:px-8 py-16 md:py-24">
+            <section className="max-w-[1300px] mx-auto shadow-xl px-4 md:px-8 py-16 md:py-24">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl text-[#091291e7] md:text-4xl font-bold mb-4 tracking-tight">New Collection</h2>
                     <p className="text-gray-500 text-sm max-w-lg mx-auto leading-relaxed">
@@ -55,16 +55,16 @@ export default function LightingWireframeLayout() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                     {newCollection.map((item, i) => (
                         <div key={i} className="flex flex-col items-center group cursor-pointer">
-                            <div className="w-full aspect-square bg-[#F5F5F5] overflow-hidden mb-6">
+                            <div className="w-full aspect-square bg-[#F5F5F5] overflow-hidden ">
                                 <img
                                     src={item.img}
                                     alt={item.name}
-                                    className="w-full rounded-xl h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700"
+                                    className="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700"
                                 />
                             </div>
-                            <div className="border border-[#091291e7] rounded-3xl shadow-xl px-8 py-3 w-max mx-auto group-hover:border-gray-900 transition-colors">
+                            {/* <div className="border border-[#091291e7] rounded-3xl shadow-xl px-8 py-3 w-max mx-auto group-hover:border-gray-900 transition-colors">
                                 <h3 className="text-xs text-[#091291e7] font-bold tracking-[0.2em] uppercase">{item.name}</h3>
-                            </div>
+                            </div> */}
                         </div>
                     ))}
                 </div>
@@ -78,7 +78,7 @@ export default function LightingWireframeLayout() {
                     <div className="w-full md:w-1/2 relative mt-10 md:mt-0">
                         <div className="w-[85%] mx-auto md:w-full aspect-[3/4] bg-gray-200 rounded-t-full overflow-hidden relative shadow-xl">
                             <img
-                                src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800"
+                                src="/sth (7).jpg"
                                 alt="Interior"
                                 className="w-full h-full object-cover mix-blend-multiply"
                             />
@@ -105,14 +105,17 @@ export default function LightingWireframeLayout() {
                     {/* Right: Text Content */}
                     <div className="w-full md:w-1/2 pt-12 md:pt-0">
                         <h2 className="text-3xl text-[#091291e7] md:text-5xl font-bold mb-6 leading-[1.1] tracking-tight">
-                            Best Lighting <br /> Design Since 2014
+                            Best Lighting <br /> Design Since 2024
                         </h2>
                         <div className="space-y-6 text-gray-500 text-sm leading-relaxed">
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                We don't just illuminate rooms; we shape atmospheres. For a decade, our studio
+                                has been dedicated to crafting luxury lighting fixtures that serve as the defining
+                                focal point of any architectural space.
                             </p>
                             <p>
-                                When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                                By merging innovative engineering with artisanal craftsmanship, we deliver pieces that stand the test of time. From
+                                hand-blown glass to precision-machined metals, experience the perfect intersection of art and illumination.
                             </p>
                         </div>
                     </div>
@@ -127,7 +130,7 @@ export default function LightingWireframeLayout() {
                     <div className="w-full md:w-1/3 flex flex-col justify-center">
                         <h2 className="text-3xl text-[#091291e7] md:text-4xl font-bold mb-4 tracking-tight">Best Seller <br /> Product.</h2>
                         <p className="text-[] text-sm leading-relaxed mb-8 pr-4">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard text.
+                            Discover our most sought-after fixtures. Celebrated by interior designers for their striking silhouettes and flawless ambient glow.
                         </p>
 
                         <Link href='/shop'>

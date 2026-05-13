@@ -59,14 +59,16 @@ export default function Navbar() {
                         </Link>
 
                         {/* Call to Action Button */}
-                        <button className="bg-[#091291e7] hover:bg-[#e6c200] text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:scale-105">
-                            Get Started
-                        </button>
+                        <Link href='/shop'>
+                            <button className="bg-[#091291e7] hover:bg-[#e6c200] text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:scale-105">
+                                Get Started
+                            </button>
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center">
-                         <Link href="/cart" className="relative group">
+                        <Link href="/cart" className="relative group">
                             <div
                                 className={`p-2 rounded-full transition-all duration-300 ${pathname === "/cart" ? "text-orange-500" : "text-gray-900 group-hover:text-white"}`}
                             >
@@ -81,7 +83,7 @@ export default function Navbar() {
                                     </span>
                                 )}
                             </div>
-                        </Link> 
+                        </Link>
                         <button
                             onClick={toggleMenu}
                             className="text-gray-900 hover:text-[#FFD700] focus:outline-none p-2 transition-colors"

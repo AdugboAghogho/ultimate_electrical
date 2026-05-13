@@ -36,9 +36,9 @@ export default function ProductPage({
   );
 
   const images =
-  product.images && product.images.length > 0
-    ? product.images
-    : [product.imageUrl];
+    product.images && product.images.length > 0
+      ? product.images
+      : [product.imageUrl];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -207,14 +207,14 @@ export default function ProductPage({
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     className="hover:text-red-600 transition-colors"
                   >
-                    <Minus className="w-4 h-4" />
+                    <Minus className="w-4 h-4 text-blue-900" />
                   </button>
-                  <span className="font-bold w-4 text-center">{quantity}</span>
+                  <span className="font-bold w-4 text-blue-900 text-center">{quantity}</span>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
                     className="hover:text-red-600 transition-colors"
                   >
-                    <Plus className="w-4 h-4" />
+                    <Plus className="w-4 h-4 text-blue-900" />
                   </button>
                 </div>
               </div>

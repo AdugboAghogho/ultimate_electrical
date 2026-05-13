@@ -4,7 +4,7 @@ import React from 'react';
 export default function PromoBanner() {
     return (
         <section className="w-full max-w-[1300px] mx-auto px-3 ">
-            <div className="flex flex-col md:flex-row w-full bg-[#858585e7] text-white overflow-hidden rounded-3xl shadow-xl">
+            <div className="flex flex-col md:flex-row w-full bg-[#858585e7] text-white overflow-hidden shadow-xl">
 
                 {/* Left: Text Content */}
                 <div className="w-full md:w-1/2 p-10 md:p-16 lg:p-24 flex flex-col justify-center">
@@ -28,7 +28,7 @@ export default function PromoBanner() {
                 {/* Right: Image */}
                 <div className="w-full md:w-1/2 aspect-square md:aspect-auto md:h-auto relative">
                     <img
-                        src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000"
+                        src="/sth (5).jpg"
                         alt="Artisan Lighting"
                         className="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-80"
                     />
