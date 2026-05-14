@@ -46,7 +46,7 @@ export default function CategoriesPage({ products = [] }: { products: any[] }) {
     return (
         <div className="flex flex-col md:flex-row max-w-[1400px] mx-auto bg-white min-h-screen">
             <SideBar />
-            <main className="flex-1 p-4 md:p-12 mt-16 md:mt-0">
+            <main className="flex-1 p-4 md:p-12 mt-16 md:mt-16">
                 <header className="mb-8 flex justify-between items-center">
                     <h1 className="text-2xl md:text-4xl font-black text-gray-900">Catalog</h1>
                     {(selectedCategory || maxPrice) && (

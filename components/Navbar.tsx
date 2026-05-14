@@ -39,7 +39,7 @@ export default function Navbar() {
                         <Link href="/" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">Home</Link>
                         <Link href="#" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">About Us</Link>
                         <Link href="/shop" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">Shop</Link>
-                        <Link href="#" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">Contact</Link>
+                        <Link href="/contact" className="text-[#091291e7] hover:text-[#FFD700] px-3 py-2 text-sm font-bold transition-colors drop-shadow-sm">Contact</Link>
 
                         <Link href="/cart" className="relative group">
                             <div
@@ -61,7 +61,7 @@ export default function Navbar() {
                         {/* Call to Action Button */}
                         <Link href='/shop'>
                             <button className="bg-[#091291e7] hover:bg-[#e6c200] text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:scale-105">
-                                Get Started
+                                Show Now
                             </button>
                         </Link>
                     </div>
@@ -113,13 +113,13 @@ export default function Navbar() {
                         <Link href="#" className="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#0a1128] hover:bg-[#FFD700] transition-all">
                             Services
                         </Link>
-                        <Link href="#" className="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#0a1128] hover:bg-[#FFD700] transition-all">
+                        <Link href="/contact" className="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#0a1128] hover:bg-[#FFD700] transition-all">
                             Contact
                         </Link>
                         <div className="pt-4">
                             <Link href="/shop">
                                 <button className="w-full bg-[#FFD700] hover:bg-[#e6c200] text-[#0a1128] px-5 py-3.5 rounded-3xl text-base font-bold transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)]">
-                                    Get Started
+                                    Show Now
                                 </button>
                             </Link>
                         </div>

@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Star, ArrowRight, Quote, MapPin, Phone, Mail } from 'lucide-react';
 import VideoBanner from './VideoBanner';
 import MeetTheOwner from './MeetTheOwner';
+import PromoBanner from "@/components/PromoBanner";
+
 
 export default function LightingWireframeLayout() {
     const [activeTab, setActiveTab] = useState('HOT');
@@ -69,6 +71,9 @@ export default function LightingWireframeLayout() {
                     ))}
                 </div>
             </section>
+
+            <PromoBanner />
+
 
             {/* 2. THE ARCH FEATURE SECTION */}
             <section className="bg-[#F9F9F9] shadow-xl py-20 md:py-32 overflow-hidden">
